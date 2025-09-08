@@ -89,7 +89,7 @@ python osam_minidemo.py --no_train --load osam_demo.pt --interactive \
 ## Concept in 30 Seconds
 
 * **Sketching.** CountSketch maps $\mathbb{R}^d\to\mathbb{R}^m$ with fixed index/sign hashes. We sketch the **phased** query/key into **Re/Im** channels.
-* **Cross feature.** $\phi_t = \operatorname{IFFT}(\operatorname{FFT}(Q_t)\odot\operatorname{FFT}(K_{t-1})) / \sqrt{t+1}$. `--kupdate k` computes this every $k$ tokens.
+* **Cross feature.** $\phi_t = \mathrm{IFFT}(\mathrm{FFT}(Q_t)\odot\mathrm{FFT}(K_{t-1})) / \sqrt{t+1}$. `--kupdate k` computes this every $k$ tokens.
 * **Value memory.** $H_t = H_{t-1} + v_t\otimes S(\tilde{k}_t)$ (Re/Im stacks). Read by contracting $H$ with $Q_t$, then a small MLP.
 * **Output.** Gated residual + LayerNorm combine cross‑feature and value‑read to produce the next hidden.
 
